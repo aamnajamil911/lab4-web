@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        var checknumber=1;
+        function addtextbox()
+        {
+            var y = document.createElement("INPUT");
+            y.setAttribute("type", Text);
+            y.setAttribute("value", "textbox");
+            document.getElementById("myform").appendChild(y);
+            var br = document.createElement("br");
+            document.getElementById("myform").appendChild(br);
+        }
+
+        function addpwd() {
+            var y = document.createElement("INPUT");
+            y.setAttribute("type", Text);
+            y.setAttribute("value", "textbox");
+            document.getElementById("myform").appendChild(y);
+            var z = document.createElement("INPUT");
+            z.setAttribute("type","password");
+            z.setAttribute("pattern", "*");
+            document.getElementById("myform").appendChild(z);
+            var br = document.createElement("br");
+            document.getElementById("myform").appendChild(br);
+        }
+        function addradio() {
+            var z = document.createElement("INPUT");
+            z.setAttribute("type", "radio");
+            z.setAttribute("value", "radio1");
+            var y = document.createElement("INPUT");
+            y.setAttribute("type", Text);
+            y.setAttribute("value", "textbox");
+            document.getElementById("myform").appendChild(y);
+          
+            document.getElementById("myform").appendChild(z);
+            var br = document.createElement("br");
+            document.getElementById("myform").appendChild(br);
+        }
+        function addcheck() {
+            var z = document.createElement("INPUT");
+            z.setAttribute("type", "checkbox");
+            var checknumberstring="checkbox" +checknumber;
+            z.setAttribute("value", checknumberstring);
+            var y = document.createElement("INPUT");
+            y.setAttribute("type", Text);
+            y.setAttribute("value", "textbox");
+            document.getElementById("myform").appendChild(y);
+
+            document.getElementById("myform").appendChild(z);
+            var br = document.createElement("br");
+            document.getElementById("myform").appendChild(br);
+            checknumber = checknumber + 1;
+        }
+       
+    </script>
+
+    <script>
+    $(document).ready(function () {
+        $("button").click(function () {
+            $("#butt").hide();
+            $("#myform").show();
+            $("#subbutton").show();
+            $("#options").show();
+
+        });
+    });
+    </script>
+</head>
+<body >
+    <button id="butt" >
+        Create a new form
+    </button>
+
+    <div id="options" hidden="hidden">
+        <button   onclick="addtextbox()"> textbox</button>
+        <button   onclick="addpwd()"> password</button>
+        <button   onclick="addradio()"> radio buttons</button>
+        <button onclick="addcheck()">check box</button>
+        
+
+
+    </div>
+    <form id="myform" hidden="hidden" >
+        <h3>
+            Form Name :
+            <input type="text" name="formname" />
+            
+        </h3>
+
+        
+    </form>
+    <input id="subbutton" type="submit" value="submit" hidden="hidden" />
+</body>
+</html>
